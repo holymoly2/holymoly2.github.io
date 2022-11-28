@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+			}
+			body{
+				background-image: url(img/行程卡.jpg);
+				background-repeat: no-repeat;
+				background-size: 100%;
+			}
+			.date2{
+				text-align: center;
+				margin-top: 635px;
+				margin-left: 150px;
+				font-size: 38px;
+				font-family: sans-serif;
+				color: #939395;
+				font-weight: 400;
+			}
+			p{
+				text-align: center;
+			}
+			input{
+				border: 0;
+				text-align: center;
+				background-color: transparent;
+				margin-top: 74px;
+				font-size: 38px;
+				font-weight: 600;
+				margin-left: 450px;
+				width: 400px;
+				outline: none;
+				
+			}
+			.home{
+				width: 100%;
+				height: 300px;
+				
+				
+			}
+		</style>
+	</head>
+	<body onload="startTime()">
+		<script>
+			function startTime(){
+				var today = new Date();
+				var h = today.getHours();
+				var m =today.getMinutes();
+				var s =today.getSeconds();
+				var n =today.getFullYear();
+				var y =today.getMonth()+1;
+				var r =today.getDate();
+				m = checkTime(m);
+				s = checkTime(s);
+				h = checkTime(h);
+				y = checkTime(y);
+				r = checkTime(r);
+				document.getElementById("timetext").innerHTML = n+"."+y+"."+r+"   "+h+":"+m+":"+s;
+				
+				t = setTimeout(function(){
+					startTime();
+				},50000);
+			}
+			
+			function checkTime(i){
+				if(i<10){
+					i = "0"+i;
+				}
+				return i;
+			}
+		</script>
+		<div id="timetext" class="date2"></div>
+		<div>
+			<p><img src="img/Untitled 2.gif" alt=""></p>
+		</div>
+		<div>
+			<input type="text" value="浙江省杭州市">
+		</div>
+		<a href="index.html">
+			<div class="home"></div>
+		</a>
+	</body>
+</html>
